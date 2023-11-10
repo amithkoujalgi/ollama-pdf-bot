@@ -55,6 +55,11 @@ When the server is up and running, access the app at: http://localhost:8501
 
 Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
+#### Demo:
+
+[Demo Video](https://youtu.be/jJyFslR-oNQ)
+
+
 #### Credits
 
 Thanks to the incredible [Ollama](https://github.com/jmorganca/ollama) and [Streamlit](https://streamlit.io/) projects.
