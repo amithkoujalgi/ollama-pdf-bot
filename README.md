@@ -53,6 +53,8 @@ docker-compose up
 
 When the server is up and running, access the app at: http://localhost:8501
 
+Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
+
 #### Credits
 
 Thanks to the incredible Ollama project.
