@@ -13,8 +13,6 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 #### Requirements
 
 - Docker (with docker-compose)
-- Ollama (Either [natively](https://ollama.ai/download) setup or
-  the [Docker image](https://hub.docker.com/r/ollama/ollama))
 - Python (for development only)
 
 #### How to run
