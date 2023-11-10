@@ -59,6 +59,11 @@ Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 [![demo](https://i.imgur.com/smXNBIG.jpg)](https://www.youtube.com/watch?v=jJyFslR-oNQ)
 
+
+https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-4171-9ae6-d82247dbaa17
+
+
+
 #### Credits
 
 Thanks to the incredible [Ollama](https://github.com/jmorganca/ollama) and [Streamlit](https://streamlit.io/) projects.
