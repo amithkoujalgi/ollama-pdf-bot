@@ -57,4 +57,4 @@ Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 #### Credits
 
-Thanks to the incredible Ollama project.
+Thanks to the incredible [Ollama](https://github.com/jmorganca/ollama) and [Streamlit](https://streamlit.io/) projects.
