@@ -8,6 +8,7 @@ ollama_api_base_url = os.environ.get('OLLAMA_API_BASE_URL', "http://localhost:11
 print(f"Using model: {model_name}")
 print(f"Using Ollama base URL: {ollama_api_base_url}")
 
+
 def pull_model(model_name_):
     print(f"pulling model '{model_name_}'...")
     url = f"{ollama_api_base_url}/api/pull"
