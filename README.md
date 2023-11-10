@@ -60,6 +60,11 @@ Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-4171-9ae6-d82247dbaa17
 
+Sample PDFs:
+
+[HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
+
+[Hl-L2351DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323209/Hl-L2351DW.v0522.pdf)
 
 
 #### Credits
