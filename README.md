@@ -8,7 +8,7 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 
 - [Requirements](#requirements)
 - [How to run](#how-to-run)
-- [Contributions](#get-involved)
+- [Credits](#credits)
 
 #### Requirements
 
