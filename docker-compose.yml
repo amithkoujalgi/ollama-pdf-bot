@@ -1,0 +1,23 @@
+services:
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - 11434:11434
+    volumes:
+      - ~/ollama:/root/.ollama
+    networks:
+      - net
+
+  app:
+    image: amithkoujalgi/pdf-bot:1.0.0
+    ports:
+      - 8501:8501
+    environment:
+      - OLLAMA_API_BASE_URL=http://ollama:11434
+      - MODEL="orca-mini"
+    networks:
+      - net
+
+networks:
+  net:

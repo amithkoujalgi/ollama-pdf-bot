@@ -1,0 +1,8 @@
+langchain
+streamlit
+replicate
+pymupdf
+huggingface-hub
+faiss-cpu
+sentence-transformers
+requests
