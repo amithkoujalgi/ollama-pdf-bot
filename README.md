@@ -19,35 +19,6 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 
 #### How to run
 
-##### With `docker`
-
-Option 1:
-
-If you're running Ollama server natively, you can directly start the `pdf-bot` docker.
-
-```shell
-docker run \
-  -p 8501:8501 \
-  -e MODEL=orca-mini \
-  -e OLLAMA_API_BASE_URL=http://<host-address-of-ollama-server>:<port-of-ollama-server> \
-  amithkoujalgi/pdf-bot:1.0.0
-```
-
-Option 2:
-
-If you're not running Ollama server natively, and you'd want Ollama server to be run as a Docker container like so:
-
-```shell
-docker run \
-  -v ~/ollama:/root/.ollama \
-  -p 11434:11434 \
-  ollama/ollama
-```
-
-and then start the `pdf-bot` container (refer to the docker run command above).
-
-##### With `docker-compose` (probably the easiest way to run the app)
-
 Define a `docker-compose.yml` and add the following contents into the file.
 
 ```yaml
