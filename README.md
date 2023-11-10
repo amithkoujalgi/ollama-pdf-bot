@@ -62,9 +62,9 @@ https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-417
 
 Sample PDFs:
 
-[HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
-
 [Hl-L2351DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323209/Hl-L2351DW.v0522.pdf)
+
+[HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
 
 
 #### Credits
