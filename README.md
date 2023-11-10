@@ -8,6 +8,7 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 
 - [Requirements](#requirements)
 - [How to run](#how-to-run)
+- [Demo](#demo)
 - [Credits](#credits)
 
 #### Requirements
@@ -55,10 +56,7 @@ When the server is up and running, access the app at: http://localhost:8501
 
 Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
-#### Demo:
-
-[![demo](https://i.imgur.com/smXNBIG.jpg)](https://www.youtube.com/watch?v=jJyFslR-oNQ)
-
+#### [Demo](https://www.youtube.com/watch?v=jJyFslR-oNQ):
 
 https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-4171-9ae6-d82247dbaa17
 
