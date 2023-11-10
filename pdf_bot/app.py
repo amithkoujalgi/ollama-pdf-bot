@@ -1,22 +1,10 @@
-import json
 import os
 from pathlib import Path
 from typing import Optional
 
-import requests
 import streamlit as st
 
 from pdf_helper import PDFHelper
-
-
-def pull_model(model_name_):
-    print(f"pulling model '{model_name_}'...")
-    url = f"{ollama_api_base_url}/api/pull"
-    data = json.dumps(dict(name=model_name_))
-    headers = {'Content-Type': 'application/json'}
-    _response = requests.post(url, data=data, headers=headers)
-    print(_response.text)
-
 
 title = "PDF Bot"
 
@@ -29,7 +17,7 @@ os.makedirs(pdfs_directory, exist_ok=True)
 print(f"Using model: {model_name}")
 print(f"Using Ollama base URL: {ollama_api_base_url}")
 print(f"Using PDFs upload directory: {pdfs_directory}")
-pull_model(model_name_=model_name)
+
 
 st.set_page_config(page_title=title)
 
