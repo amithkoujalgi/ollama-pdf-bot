@@ -57,9 +57,7 @@ Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 #### Demo:
 
-[![demo](https://raw.githubusercontent.com/amithkoujalgi/ollama-pdf-bot/main/.demo-stuff/pdf-bot.jpg)](https://www.youtube.com/watch?v=jJyFslR-oNQ)
-
-https://raw.githubusercontent.com/amithkoujalgi/ollama-pdf-bot/main/.demo-stuff/PDF%20Bot%20Demo.mp4
+[![demo](https://i.imgur.com/smXNBIG.jpg)](https://www.youtube.com/watch?v=jJyFslR-oNQ)
 
 #### Credits
 
