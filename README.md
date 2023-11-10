@@ -57,7 +57,7 @@ Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 #### Demo:
 
-[Demo Video](https://youtu.be/jJyFslR-oNQ)
+https://youtu.be/jJyFslR-oNQ
 
 
 #### Credits
