@@ -13,6 +13,7 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 - [Requirements](#requirements)
 - [How to run](#how-to-run)
 - [Demo](#demo)
+- [Improvements](#improvements)
 - [Credits](#credits)
 
 #### Requirements
@@ -22,7 +23,7 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 
 #### How to run
 
-Define a `docker-compose.yml` and add the following contents into the file.
+Define a `docker-compose.yml` by adding the following contents into the file.
 
 ```yaml
 services:
@@ -58,6 +59,11 @@ docker-compose up
 
 When the server is up and running, access the app at: http://localhost:8501
 
+Note: 
+- It takes a while to start up since it downloads the specified model for the first time.
+- If your hardware does not have a GPU and you choose to run only on CPU, expect high response time from the bot.
+- Only Nvidia is supported as mentioned in Ollama's documentation. Others such as AMD isn't supported yet. Read how to use GPU on [Ollama container](https://hub.docker.com/r/ollama/ollama) and [docker-compose](https://docs.docker.com/compose/gpu-support/#:~:text=GPUs%20are%20referenced%20in%20a,capabilities%20.).
+
 Image on DockerHub: https://hub.docker.com/r/amithkoujalgi/pdf-bot
 
 #### [Demo](https://www.youtube.com/watch?v=jJyFslR-oNQ):
@@ -70,6 +76,9 @@ Sample PDFs:
 
 [HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
 
+#### Improvements
+
+- [ ] Expose model params such as `temperature`, `top_k`, `top_p` as configurable env vars
 
 #### Credits
 
