@@ -4,6 +4,10 @@ A bot that accepts PDF docs and lets you ask questions on it.
 
 The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/ollama).
 
+![GitHub stars](https://img.shields.io/github/stars/amithkoujalgi/ollama-pdf-bot?style=social)
+![GitHub forks](https://img.shields.io/github/forks/amithkoujalgi/ollama-pdf-bot?style=social)
+![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Famithkoujalgi%2Follama-pdf-bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
+
 ## Table of Contents
 
 - [Requirements](#requirements)
