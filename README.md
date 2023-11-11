@@ -38,7 +38,7 @@ services:
       - 8501:8501
     environment:
       - OLLAMA_API_BASE_URL=http://ollama:11434
-      - MODEL="orca-mini"
+      - MODEL=orca-mini
     networks:
       - net
 
