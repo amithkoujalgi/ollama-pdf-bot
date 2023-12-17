@@ -1,8 +1,8 @@
-langchain
-streamlit
-replicate
-pymupdf
-huggingface-hub
-faiss-cpu
-sentence-transformers
-requests
+langchain==0.0.334
+streamlit==1.28.1
+replicate==0.18.1
+pymupdf==1.23.6
+huggingface-hub==0.17.3
+faiss-cpu==1.7.4
+sentence-transformers==2.2.2
+requests==2.31.0

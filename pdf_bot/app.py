@@ -4,13 +4,16 @@ from typing import Optional
 
 import streamlit as st
 
-from pdf_helper import PDFHelper
+from config import Config
+from pdf_helper import PDFHelper, load_embedding_model
+
+load_embedding_model(model_name=Config.EMBEDDING_MODEL_NAME)
 
 title = "PDF Bot"
 
-model_name = os.environ.get('MODEL', "orca-mini")
+model_name = Config.MODEL
 
-ollama_api_base_url = os.environ.get('OLLAMA_API_BASE_URL', "http://localhost:11434")
+ollama_api_base_url = Config.OLLAMA_API_BASE_URL
 pdfs_directory = os.path.join(str(Path.home()), 'langchain-store', 'uploads', 'pdfs')
 os.makedirs(pdfs_directory, exist_ok=True)
 

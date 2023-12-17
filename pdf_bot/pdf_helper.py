@@ -12,6 +12,8 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 
+from config import Config
+
 
 # This loads the PDF file
 def load_pdf_data(file_path):
@@ -42,10 +44,10 @@ def split_docs(documents, chunk_size=1000, chunk_overlap=20):
 
 
 # function for loading the embedding model
-def load_embedding_model(model_path, normalize_embedding=True):
+def load_embedding_model(model_name, normalize_embedding=True):
     return HuggingFaceEmbeddings(
-        model_name=model_path,
-        model_kwargs={'device': 'cpu'},  # here we will run the model with CPU only
+        model_name=model_name,
+        model_kwargs={'device': Config.HUGGING_FACE_EMBEDDINGS_DEVICE_TYPE},  # here we will run the model with CPU only
         encode_kwargs={
             'normalize_embeddings': normalize_embedding  # keep True to compute cosine similarity
         }
@@ -78,19 +80,19 @@ def load_qa_chain(retriever, llm, prompt):
 def get_response(query, chain) -> str:
     # Get response from chain
     response = chain({'query': query})
-
     # Wrap the text for better output in Jupyter Notebook
-    wrapped_text = textwrap.fill(response['result'], width=100)
-    return wrapped_text
+    res = response['result']
+    # wrapped_text = textwrap.fill(res, width=100)
+    return res
 
 
 class PDFHelper:
 
-    def __init__(self, ollama_api_base_url: str, model_name: str = "orca-mini",
-                 embedding_model_path: str = "all-MiniLM-L6-v2"):
+    def __init__(self, ollama_api_base_url: str, model_name: str = Config.MODEL,
+                 embedding_model_name: str = Config.EMBEDDING_MODEL_NAME):
         self._ollama_api_base_url = ollama_api_base_url
         self._model_name = model_name
-        self._embedding_model_path = embedding_model_path
+        self._embedding_model_name = embedding_model_name
 
     def ask(self, pdf_file_path: str, question: str) -> str:
         vector_store_directory = os.path.join(str(Path.home()), 'langchain-store', 'vectorstore',
@@ -116,7 +118,7 @@ class PDFHelper:
         )
 
         # Load the Embedding Model
-        embed = load_embedding_model(model_path=self._embedding_model_path)
+        embed = load_embedding_model(model_name=self._embedding_model_name)
 
         # load and split the documents
         docs = load_pdf_data(file_path=pdf_file_path)
@@ -130,8 +132,9 @@ class PDFHelper:
 
         template = """
         ### System:
-        You are an respectful and honest assistant. You have to answer the user's questions using only the context \
-        provided to you. If you don't know the answer, just say you don't know. Don't try to make up an answer.
+        You are an honest assistant.
+        You will accept PDF files and you will answer the question asked by the user appropriately.
+        If you don't know the answer, just say you don't know. Don't try to make up an answer.
     
         ### Context:
         {context}
@@ -151,4 +154,5 @@ class PDFHelper:
         end_time = time.time()
 
         print(f"Response time: {end_time - start_time} seconds.\n")
+
         return response.strip()
