@@ -13,8 +13,9 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 - [Requirements](#requirements)
 - [How to run](#how-to-run)
 - [Demo](#demo)
+- [Benchmarks](#benchmarks)
 - [Improvements](#improvements)
-- Contributing
+- [Contributing](#contributing)
 - [Credits](#credits)
 
 ### Requirements
@@ -68,27 +69,27 @@ https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-417
 
 [HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
 
-### Improvements
-
-- [ ] Expose model params such as `temperature`, `top_k`, `top_p` as configurable env vars
-
 ### Benchmarks
 
 - The above provided PDFs were used for benchmarking.
-
-LLAMA2: Download model - ~6-8 minutes
+- Models used: `Llama2`
+- Model download time `Llama2` - `~6-8 minutes`
 
 #### Devices used
 
-- PC: Intel i9 (9th gen), Nvidia RTX 2080, 32 GB memory
-- Laptop: Intel i7 MacBook Pro (2017)
+- **PC**: Intel i9 (9th gen), Nvidia RTX 2080, 32 GB memory
+- **Laptop**: Intel i7 MacBook Pro (2017)
 
 | Model  | Device | Operation                                 | Time Taken       |
 |--------|--------|-------------------------------------------|------------------|
-| LLAMA2 | PC     | Load embedding model                      | ~3-4 minutes     |
-| LLAMA2 | PC     | Answer the questions on the uploaded PDFs | ~5-10 seconds    |
-| LLAMA2 | Laptop | Load embedding model                      | ~8 minutes       |
-| LLAMA2 | Laptop | Answer the questions on the uploaded PDFs | ~100-130 seconds |
+| Llama2 | PC     | Load embedding model                      | ~3-4 minutes     |
+| Llama2 | PC     | Answer the questions on the uploaded PDFs | ~5-10 seconds    |
+| Llama2 | Laptop | Load embedding model                      | ~8 minutes       |
+| Llama2 | Laptop | Answer the questions on the uploaded PDFs | ~100-130 seconds |
+
+### Improvements
+
+- [ ] Expose model params such as `temperature`, `top_k`, `top_p` as configurable env vars
 
 ### Contributing
 
