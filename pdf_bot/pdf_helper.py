@@ -88,7 +88,7 @@ def create_embeddings(chunks, embedding_model, storing_path="vectorstore"):
 
 # Create the chain for Question Answering
 def load_qa_chain(retriever, llm, prompt):
-    print("Creating embeddings...")
+    print("Loading QA chain...")
     start_time = time.time()
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
