@@ -77,17 +77,17 @@ https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-417
 
 #### Devices used
 
-- **PC**: Intel i9 (9th gen), Nvidia RTX 2080, 32 GB memory
-- **Laptop**: Intel i7 MacBook Pro (2017)
+- **PC**: 3.6 GHz Intel i9 (9th gen), Nvidia RTX 2080, 32 GB memory
+- **Laptop**: 2.6 GHz 6-Core Intel Core i7 MacBook Pro (2019)
 
-| Model  | Device | Operation                                 | Time Taken       |
-|--------|--------|-------------------------------------------|------------------|
-| Llama2 | PC     | Load embedding model                      | <1 minute        |
-| Llama2 | PC     | Create embeddings and vector store        | ~3-4 minutes     |
-| Llama2 | PC     | Answer the questions on the uploaded PDFs | ~5-10 seconds    |
-| Llama2 | Laptop | Load embedding model                      | ~2 minutes       |
-| Llama2 | Laptop | Create embeddings and vector store        | ~8 minutes       |
-| Llama2 | Laptop | Answer the questions on the uploaded PDFs | ~100-130 seconds |
+| Model  | Device | Operation                                 | Time Taken    |
+|--------|--------|-------------------------------------------|---------------|
+| Llama2 | PC     | Load embedding model                      | <1 minute     |
+| Llama2 | PC     | Create embeddings and vector store        | ~3-4 minutes  |
+| Llama2 | PC     | Answer the questions on the uploaded PDFs | ~5-10 seconds |
+| Llama2 | Laptop | Load embedding model                      | ~120 seconds  |
+| Llama2 | Laptop | Create embeddings and vector store        | ~80 seconds   |
+| Llama2 | Laptop | Answer the questions on the uploaded PDFs | ~150 seconds  |
 
 ### Improvements
 
@@ -101,6 +101,24 @@ with code - any sort of contribution is much appreciated.
 #### Requirements
 
 ![Python](https://img.shields.io/badge/python-3.8_+-green.svg)
+
+#### Setup Ollama server for development
+
+```shell
+docker run -it -v ~/ollama:/root/.ollama -p 11434:11434 ollama/ollama
+```
+
+#### Install the libs
+
+```shell
+pip install -r requirements.txt
+```
+
+#### Start the app
+
+```shell
+streamlit run pdf_bot/app.py
+```
 
 ### Credits
 

@@ -45,22 +45,42 @@ def split_docs(documents, chunk_size=1000, chunk_overlap=20):
 
 # function for loading the embedding model
 def load_embedding_model(model_name, normalize_embedding=True):
-    return HuggingFaceEmbeddings(
+    print("Loading embedding model...")
+    start_time = time.time()
+    hugging_face_embeddings = HuggingFaceEmbeddings(
         model_name=model_name,
         model_kwargs={'device': Config.HUGGING_FACE_EMBEDDINGS_DEVICE_TYPE},  # here we will run the model with CPU only
         encode_kwargs={
             'normalize_embeddings': normalize_embedding  # keep True to compute cosine similarity
         }
     )
+    end_time = time.time()
+    time_taken = round(end_time - start_time, 2)
+    print(f"Embedding model load time: {time_taken} seconds.\n")
+    return hugging_face_embeddings
 
 
 # Function for creating embeddings using FAISS
 def create_embeddings(chunks, embedding_model, storing_path="vectorstore"):
+    print("Creating embeddings...")
+    e_start_time = time.time()
+
     # Create the embeddings using FAISS
     vectorstore = FAISS.from_documents(chunks, embedding_model)
 
+    e_end_time = time.time()
+    e_time_taken = round(e_end_time - e_start_time, 2)
+    print(f"Embeddings creation time: {e_time_taken} seconds.\n")
+
+    print("Writing vectorstore..")
+    v_start_time = time.time()
+
     # Save the model in a directory
     vectorstore.save_local(storing_path)
+
+    v_end_time = time.time()
+    v_time_taken = round(v_end_time - v_start_time, 2)
+    print(f"Vectorstore write time: {v_time_taken} seconds.\n")
 
     # return the vectorstore
     return vectorstore
@@ -68,20 +88,26 @@ def create_embeddings(chunks, embedding_model, storing_path="vectorstore"):
 
 # Create the chain for Question Answering
 def load_qa_chain(retriever, llm, prompt):
-    return RetrievalQA.from_chain_type(
+    print("Creating embeddings...")
+    start_time = time.time()
+    qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=retriever,  # here we are using the vectorstore as a retriever
         chain_type="stuff",
         return_source_documents=True,  # including source documents in output
         chain_type_kwargs={'prompt': prompt}  # customizing the prompt
     )
+    end_time = time.time()
+    time_taken = round(end_time - start_time, 2)
+    print(f"QA chain load time: {time_taken} seconds.\n")
+    return qa_chain
 
 
 def get_response(query, chain) -> str:
     # Get response from chain
     response = chain({'query': query})
-    # Wrap the text for better output in Jupyter Notebook
     res = response['result']
+    # Wrap the text for better output in Jupyter Notebook
     # wrapped_text = textwrap.fill(res, width=100)
     return res
 
@@ -99,8 +125,6 @@ class PDFHelper:
                                               'pdf-doc-helper-store', str(uuid.uuid4()))
         os.makedirs(vector_store_directory, exist_ok=True)
         print(f"Using vector store: {vector_store_directory}")
-
-        start_time = time.time()
 
         llm = ChatOllama(
             temperature=0,
@@ -150,9 +174,14 @@ class PDFHelper:
         # Create the chain
         chain = load_qa_chain(retriever, llm, prompt)
 
+        start_time = time.time()
+
         response = get_response(question, chain)
+
         end_time = time.time()
 
-        print(f"Response time: {end_time - start_time} seconds.\n")
+        time_taken = round(end_time - start_time, 2)
+
+        print(f"Response time: {time_taken} seconds.\n")
 
         return response.strip()

@@ -6,3 +6,4 @@ huggingface-hub==0.17.3
 faiss-cpu==1.7.4
 sentence-transformers==2.2.2
 requests==2.31.0
+streamlit_js_eval==0.1.5

@@ -10,7 +10,7 @@ from pdf_helper import PDFHelper, load_embedding_model
 load_embedding_model(model_name=Config.EMBEDDING_MODEL_NAME)
 
 title = "PDF Bot"
-
+init_msg = "Hello, I'm your PDF assistant. Upload a PDF to get going."
 model_name = Config.MODEL
 
 ollama_api_base_url = Config.OLLAMA_API_BASE_URL
@@ -21,12 +21,15 @@ print(f"Using model: {model_name}")
 print(f"Using Ollama base URL: {ollama_api_base_url}")
 print(f"Using PDFs upload directory: {pdfs_directory}")
 
-
 st.set_page_config(page_title=title)
 
 
 def on_upload_change():
-    clear_chat_history()
+    # clear_chat_history()
+    print("File changed.")
+
+    st.session_state.messages = [{"role": "assistant", "content": init_msg}]
+
 
 
 def set_uploaded_file(_uploaded_file: str):
@@ -55,6 +58,13 @@ with st.sidebar:
     )
 
     if uploaded_file is not None:
+        added = False
+        my_msg = f"Great! Now, what do you want from `{uploaded_file.name}`?"
+        for msg in st.session_state.messages:
+            if msg["content"] == my_msg:
+                added = True
+        if not added:
+            st.session_state.messages.append({"role": "assistant", "content": my_msg})
         bytes_data = uploaded_file.getvalue()
         target_file = os.path.join(pdfs_directory, uploaded_file.name)
         # print(uploaded_file)
@@ -64,7 +74,7 @@ with st.sidebar:
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Hello, I'm your PDF assistant."}]
+    st.session_state.messages = [{"role": "assistant", "content": init_msg}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -73,7 +83,9 @@ for message in st.session_state.messages:
 
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Hello, I'm your PDF assistant."}]
+    from streamlit_js_eval import streamlit_js_eval
+    streamlit_js_eval(js_expressions="parent.window.location.reload()")
+    st.session_state.messages = [{"role": "assistant", "content": init_msg}]
 
 
 st.sidebar.button('Reset', on_click=clear_chat_history)
