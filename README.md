@@ -1,5 +1,7 @@
 ### PDF Bot with Ollama
 
+<img width="15%" src="https://raw.githubusercontent.com/amithkoujalgi/ollama-pdf-bot/main/.demo-stuff/logo.jpeg"/>
+
 A bot that accepts PDF docs and lets you ask questions on it.
 
 The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/ollama).
