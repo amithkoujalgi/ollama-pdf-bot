@@ -50,6 +50,8 @@ make start-gpu
 
 When the server is up and running, access the app at: http://localhost:8501
 
+Switch to a different model by changing the `MODEL` env variable in the [docker-compose.yaml](https://github.com/amithkoujalgi/ollama-pdf-bot/blob/main/docker-compose.yml#L18). Check out the available models from [here](https://ollama.ai/library).
+
 **Note:**
 
 - It takes a while to start up since it downloads the specified model for the first time.
