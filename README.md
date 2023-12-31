@@ -15,7 +15,6 @@ The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/oll
 - [Requirements](#requirements)
 - [How to run](#how-to-run)
 - [Demo](#demo)
-- [Benchmarks](#benchmarks)
 - [Improvements](#improvements)
 - [Contributing](#contributing)
 - [Credits](#credits)
