@@ -71,25 +71,6 @@ https://github.com/amithkoujalgi/ollama-pdf-bot/assets/1876165/40dc70e6-9d35-417
 
 [HL-B2080DW v0522.pdf](https://github.com/amithkoujalgi/ollama-pdf-bot/files/13323208/HL-B2080DW.v0522.pdf)
 
-### Benchmarks
-
-- The above provided PDFs were used for benchmarking.
-- Models used: `Llama2`
-- Model download time `Llama2` - `~6-8 minutes`
-
-#### Devices used
-
-- **PC**: 3.6 GHz Intel i9 (9th gen), Nvidia RTX 2080, 32 GB memory
-- **Laptop**: 2.6 GHz 6-Core Intel Core i7 MacBook Pro (2019)
-
-| Model  | Device | Operation                                 | Time Taken    |
-|--------|--------|-------------------------------------------|---------------|
-| Llama2 | PC     | Load embedding model                      | <1 minute     |
-| Llama2 | PC     | Create embeddings and vector store        | ~3-4 minutes  |
-| Llama2 | PC     | Answer the questions on the uploaded PDFs | ~5-10 seconds |
-| Llama2 | Laptop | Load embedding model                      | ~120 seconds  |
-| Llama2 | Laptop | Create embeddings and vector store        | ~80 seconds   |
-| Llama2 | Laptop | Answer the questions on the uploaded PDFs | ~150 seconds  |
 
 ### Improvements
 
