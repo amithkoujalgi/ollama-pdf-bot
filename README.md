@@ -108,3 +108,4 @@ streamlit run pdf_bot/app.py
 
 Thanks to the incredible [Ollama](https://github.com/jmorganca/ollama), [Langchain](https://www.langchain.com/)
 and [Streamlit](https://streamlit.io/) projects.
+
