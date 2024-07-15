@@ -109,8 +109,11 @@ streamlit run pdf_bot/app.py
 Thanks to the incredible [Ollama](https://github.com/jmorganca/ollama), [Langchain](https://www.langchain.com/)
 and [Streamlit](https://streamlit.io/) projects.
 
-## Appreciate my work?
+### Appreciate my work?
 
-<a href="https://www.buymeacoffee.com/amithkoujalgi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
+<p align="center">
+  <a href="https://www.buymeacoffee.com/amithkoujalgi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 <a href="https://ko-fi.com/amithkoujalgi" target="_blank"><img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69e9f9_ko-fi_logo_03.png" alt="Show support" style="height: 60px !important;width: 217px !important;" ></a>
+</p>
+
+
