@@ -1,14 +1,29 @@
 ### PDF Bot with Ollama
 
-<img width="15%" src="https://raw.githubusercontent.com/amithkoujalgi/ollama-pdf-bot/main/.demo-stuff/logo.jpeg"/>
+
+<p align="center">
+  <img width="15%" src="https://raw.githubusercontent.com/amithkoujalgi/ollama-pdf-bot/main/.demo-stuff/logo.jpeg"/>
+</p>
 
 A bot that accepts PDF docs and lets you ask questions on it.
 
 The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/ollama).
 
-![GitHub stars](https://img.shields.io/github/stars/amithkoujalgi/ollama-pdf-bot?style=social)
+<p align="center">
+  <img width="18%" src="https://img.shields.io/docker/pulls/amithkoujalgi/pdf-bot?style=for-the-badge"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/amithkoujalgi/ollama-pdf-bot?style=social"/>
+    <img src="https://img.shields.io/github/forks/amithkoujalgi/ollama-pdf-bot?style=social"/>
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Famithkoujalgi%2Follama-pdf-bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/>
+
+</p>
+<!-- ![GitHub stars](https://img.shields.io/github/stars/amithkoujalgi/ollama-pdf-bot?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/amithkoujalgi/ollama-pdf-bot?style=social)
 ![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Famithkoujalgi%2Follama-pdf-bot&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
+ -->
+
 
 ## Table of Contents
 
@@ -113,7 +128,7 @@ and [Streamlit](https://streamlit.io/) projects.
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/amithkoujalgi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-<a href="https://ko-fi.com/amithkoujalgi" target="_blank"><img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69e9f9_ko-fi_logo_03.png" alt="Show support" style="height: 60px !important;width: 217px !important;" ></a>
+  <a href="https://ko-fi.com/amithkoujalgi" target="_blank"><img src="https://cdn.prod.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69e9f9_ko-fi_logo_03.png" alt="Show support" style="height: 60px !important;width: 217px !important;" ></a>
 </p>
 
 
