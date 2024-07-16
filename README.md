@@ -10,7 +10,7 @@ A bot that accepts PDF docs and lets you ask questions on it.
 The LLMs are downloaded and served via [Ollama](https://github.com/jmorganca/ollama).
 
 <p align="center">
-  <img width="25%" src="https://img.shields.io/docker/pulls/amithkoujalgi/pdf-bot?style=for-the-badge"/>
+  <img width="25%" src="https://img.shields.io/docker/pulls/amithkoujalgi/pdf-bot?style=for-the-badge&link=https%3A%2F%2Fhub.docker.com%2Fr%2Famithkoujalgi%2Fpdf-bot"/>
 </p>
 
 <p align="center">
