@@ -3,6 +3,7 @@ import textwrap
 import time
 import uuid
 from pathlib import Path
+from typing import List
 
 import langchain
 from langchain.chains import RetrievalQA
@@ -25,6 +26,27 @@ def load_pdf_data(file_path):
 
     # return the loaded document
     return docs
+
+
+# Load multiple PDF files
+def load_multiple_pdf_data(file_paths: List[str]):
+    """Load multiple PDF files and combine their documents"""
+    all_docs = []
+    
+    for file_path in file_paths:
+        try:
+            docs = load_pdf_data(file_path)
+            # Add metadata to identify source file
+            for doc in docs:
+                doc.metadata['source_file'] = os.path.basename(file_path)
+            all_docs.extend(docs)
+            print(f"Loaded PDF: {os.path.basename(file_path)} ({len(docs)} pages)")
+        except Exception as e:
+            print(f"Error loading {file_path}: {str(e)}")
+            continue
+    
+    print(f"Total documents loaded: {len(all_docs)} pages from {len(file_paths)} files")
+    return all_docs
 
 
 # Responsible for splitting the documents into several chunks
@@ -121,6 +143,7 @@ class PDFHelper:
         self._embedding_model_name = embedding_model_name
 
     def ask(self, pdf_file_path: str, question: str) -> str:
+        """Process a single PDF file and answer questions"""
         vector_store_directory = os.path.join(str(Path.home()), 'langchain-store', 'vectorstore',
                                               'pdf-doc-helper-store', str(uuid.uuid4()))
         os.makedirs(vector_store_directory, exist_ok=True)
@@ -183,5 +206,82 @@ class PDFHelper:
         time_taken = round(end_time - start_time, 2)
 
         print(f"Response time: {time_taken} seconds.\n")
+
+        return response.strip()
+
+    def ask_multiple(self, pdf_file_paths: List[str], question: str) -> str:
+        """Process multiple PDF files and answer questions across all documents"""
+        vector_store_directory = os.path.join(str(Path.home()), 'langchain-store', 'vectorstore',
+                                              'multi-pdf-doc-helper-store', str(uuid.uuid4()))
+        os.makedirs(vector_store_directory, exist_ok=True)
+        print(f"Using vector store for multiple files: {vector_store_directory}")
+
+        llm = ChatOllama(
+            temperature=0,
+            base_url=self._ollama_api_base_url,
+            model=self._model_name,
+            streaming=True,
+            top_k=10,
+            top_p=0.3,
+            num_ctx=4096,  # Increased context window for multiple documents
+            verbose=False
+        )
+
+        # Load the Embedding Model
+        embed = load_embedding_model(model_name=self._embedding_model_name)
+
+        # Load and combine all PDF documents
+        all_docs = load_multiple_pdf_data(pdf_file_paths)
+        
+        if not all_docs:
+            return "I couldn't load any documents. Please check your files and try again."
+
+        # Split the combined documents
+        documents = split_docs(documents=all_docs, chunk_size=1000, chunk_overlap=50)
+
+        # Create vectorstore from all documents
+        vectorstore = create_embeddings(chunks=documents, embedding_model=embed, storing_path=vector_store_directory)
+
+        # Convert vectorstore to a retriever with higher k for multiple documents
+        retriever = vectorstore.as_retriever(search_kwargs={"k": 8})
+
+        # Enhanced template for multiple documents
+        template = """
+        ### System:
+        You are File Whisper, an intelligent document assistant. You have access to multiple PDF documents uploaded by the user.
+        
+        When answering questions:
+        1. Draw information from ALL relevant documents
+        2. If information comes from specific documents, mention the source file name
+        3. Provide comprehensive answers that synthesize information across documents
+        4. If you don't know the answer, just say you don't know. Don't try to make up an answer.
+        5. Be helpful and conversational while maintaining accuracy
+    
+        ### Context from Documents:
+        {context}
+    
+        ### User Question:
+        {question}
+    
+        ### Response:
+        """
+
+        prompt = langchain.prompts.PromptTemplate.from_template(template)
+
+        # Create the chain
+        chain = load_qa_chain(retriever, llm, prompt)
+
+        start_time = time.time()
+
+        # Get file names for context
+        file_names = [os.path.basename(path) for path in pdf_file_paths]
+        enhanced_question = f"Question about the {len(file_names)} uploaded documents ({', '.join(file_names)}): {question}"
+
+        response = get_response(enhanced_question, chain)
+
+        end_time = time.time()
+        time_taken = round(end_time - start_time, 2)
+
+        print(f"Multi-document response time: {time_taken} seconds.\n")
 
         return response.strip()
