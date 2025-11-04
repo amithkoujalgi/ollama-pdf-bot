@@ -1,0 +1,43 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="#1e3a8a" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Document stack -->
+  <g transform="translate(25, 20)">
+    <!-- Back document -->
+    <rect x="8" y="8" width="50" height="65" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+    
+    <!-- Middle document -->
+    <rect x="4" y="4" width="50" height="65" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+    
+    <!-- Front document -->
+    <rect x="0" y="0" width="50" height="65" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+    
+    <!-- Document content lines -->
+    <line x1="8" y1="15" x2="42" y2="15" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="8" y1="22" x2="38" y2="22" stroke="#64748b" stroke-width="1"/>
+    <line x1="8" y1="29" x2="40" y2="29" stroke="#64748b" stroke-width="1"/>
+    <line x1="8" y1="36" x2="35" y2="36" stroke="#64748b" stroke-width="1"/>
+    
+    <!-- File corner fold -->
+    <path d="M40 0 L40 10 L50 10 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  </g>
+  
+  <!-- Magic sparkles/whisper effect -->
+  <g fill="#fbbf24" opacity="0.9">
+    <circle cx="85" cy="35" r="2"/>
+    <circle cx="92" cy="42" r="1.5"/>
+    <circle cx="88" cy="50" r="1"/>
+    <path d="M95 30 L97 34 L101 32 L97 36 L95 40 L93 36 L89 32 L93 34 Z"/>
+  </g>
+  
+  <!-- Whisper lines -->
+  <g stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.8">
+    <path d="M82 60 Q90 58 95 62"/>
+    <path d="M84 67 Q92 65 97 69"/>
+    <path d="M86 74 Q94 72 99 76"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="60" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e3a8a">File Whisper</text>
+</svg>
